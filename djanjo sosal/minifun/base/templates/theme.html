@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дашборд</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #eaeaea;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .dashboard {
+            background: #29293d;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+        }
+        .dashboard h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #f0db4f;
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px 20px;
+            background: #3c3c55;
+            border-radius: 8px;
+        }
+        .info span {
+            font-size: 18px;
+        }
+        .info .label {
+            font-weight: bold;
+            color: #61dafb;
+        }
+        .sidebar {
+            width: 400px;
+            background: #29293d;
+            padding: 20px;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+        .sidebar h2 {
+            color: #f0db4f;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        .sidebar p {
+            font-size: 16px;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .sidebar .code {
+            background: #1e1e2f;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #61dafb;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+        .content {
+            display: flex;
+            width: 100%;
+        }
+    </style>
+
+
+        <style>
+            {% if hour >= 5 and hour <= 11 %}
+                body {
+                    background: url('https://pics.freeartbackgrounds.com/midle/Blue_Sky_Background-1160.j');
+            }
+            {% elif hour  >= 12 and hour <= 17 %}
+                body {
+                    background: url('https://plus.unsplash.com/premium_photo-1668091148044-056cd744e64a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZXZlbmluZyUyMHNreXxlbnwwfHwwfHx8MA%3D%3D') ;
+            }
+            {% elif hour >= 18 and hour <= 22 %}
+                body {
+                    background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ec9668a8-c2b5-42b7-a35d-b64c46052c49/dldghx-84a6d177-39a5-4554-a550-34228515b8a1.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2VjOTY2OGE4LWMyYjUtNDJiNy1hMzVkLWI2NGM0NjA1MmM0OVwvZGxkZ2h4LTg0YTZkMTc3LTM5YTUtNDU1NC1hNTUwLTM0MjI4NTE1YjhhMS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.ZLETFpsAnlN3CzmaqFwpJiMqcgQoAFOR6CgcLUqIPrE') ;
+            }
+            {% else %}
+                body {
+                    background: url('https://artsci.washington.edu/sites/default/files/2022-11/night_sky_by_ryan_hutton_hero_2080x780.jpg');
+                }
+            {% endif %}    
+        </style>
+        <style>
+            body {
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+        </style>
+</head>
+<body>
+    <div class="content">
+        <div class="sidebar">
+            <h2>Инструкция</h2>
+            <p>Разовая процедура (обычно когда с нового компа хотите использовать GitHub): генерация и подключение публичного SSH ключа. Это нужно, чтобы можно было пользоваться GitHub. Вот как настроить SSH ключ:</p>
+            <div class="code">
+1. ssh-keygen -t rsa -b 4096
+2. Откройте папку .ssh в Диск С/Пользователи(Users)/<имя вашего виндоус пользователя>/.ssh
+3. Откройте в PyCharm/VS Code файл id_rsa.pub, который находится в этой папке (иногда у него зеленая иконка)
+4. Скопируйте оттуда код
+5. Откройте ваш GitHub аккаунт, перейдите в настройки, поле "SSH and GPG keys"
+6. Нажмите на кнопку "Add new SSH Key"
+7. Вставьте в большое поле то, что скопировали (ваш ключ), а в маленькое введите любое название, потом нажмите сохранить
+8. Можете создавать репозиторий для вашего проекта :)
+            </div>
+            <p>Инструкция как загрузить себе на компьютер GitHub репозиторий:</p>
+            <div class="code">
+1. Открыть консоль(cmd)
+1.1. cd desktop
+2. Клонировать себе на компьютер репозиторий:
+git clone <ssh ссылка на репозиторий>
+3. Открыть папку с репозиторием в редакторе кода
+            </div>
+            <p>Если сделали изменения и хотите загрузить их на репозиторий:</p>
+            <div class="code">
+1. Откройте терминал в PyCharm/VS Code
+2. git add .
+3. git commit -m "сообщение об изменениях"
+4. git branch -m main
+5. git push origin main
+            </div>
+            <p>Если хотите получить изменения, которые добавил другой пользователь:</p>
+            <div class="code">
+1. git pull origin main
+            </div>
+            <p>Если вы другой пользователь и хотите скачать себе проект:</p>
+            <div class="code">
+1. Открыть консоль(cmd)
+1.1. cd desktop
+1.2. git clone <ссылка на репозиторий хоста>
+1.3. Открываете папку, которая скачалась после этой команды в редакторе кода
+2. *делаете изменения в проекте*
+3. git add .
+4. git commit -m "сообщение об изменениях"
+5. git branch -M main
+6. git push origin main
+            </div>
+        </div>
+        <div class="dashboard">
+            <h1>Дашборд</h1>
+            <div class="info">
+                <span class="label">Дата:</span>
+                <span>{{ date }}</span>
+            </div>
+            <div class="info">
+                <span class="label">Время:</span>
+                <span>{{ time }}</span>
+            </div>
+            <div class="info">
+                <span class="label">День недели:</span>
+                <span>{{ weekday }}</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
